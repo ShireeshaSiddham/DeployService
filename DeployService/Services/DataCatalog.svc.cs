@@ -63,11 +63,11 @@ namespace DeployService.Services
                 }
 
 
-                // byte[] res1 = WC.UploadData("http://localhost:50611/Services/Authentication.svc/sec/auth/verify", "POST", MS.ToArray());
-                byte[] res1 = WC.UploadData(
-                    "https://dev.dmroffice.com/Deploy2/ConcentoSecurity/Services/Authentication.svc/sec/auth/verify",
-                    "POST",
-                    MS.ToArray());
+                byte[] res1 = WC.UploadData("http://localhost:50611/Services/Authentication.svc/sec/auth/verify", "POST", MS.ToArray());
+                //byte[] res1 = WC.UploadData(
+                //    "https://dev.dmroffice.com/Deploy2/ConcentoSecurity/Services/Authentication.svc/sec/auth/verify",
+                //    "POST",
+                //    MS.ToArray());
                 MS = new MemoryStream(res1);
                 var serializer = new StreamReader(MS);
                 var resp = serializer.ReadToEnd();
@@ -83,5 +83,118 @@ namespace DeployService.Services
             }
 
         }
+
+        //Get Employees details
+        public System.IO.Stream GetEmployees()
+        {
+            try
+            {
+                DataSetDBModel dataSetModel = new DataSetDBModel();
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                //used for handling null values
+                settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                //convert the object into a string format
+                string strResponseDataSet = JsonConvert.SerializeObject(
+                    dataSetModel.GetEmployees(), settings);
+                //have the control over the json
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return new System.IO.MemoryStream(responseData);
+            }
+            catch (Exception ex)
+            {
+                string strResponseDataSet = JsonConvert.SerializeObject(ex.Message);
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                return new System.IO.MemoryStream(responseData);
+            }
+        }
+
+        //Get Mapping Actions
+        public System.IO.Stream GetMappingActions()
+        {
+            try
+            {
+                DataSetDBModel dataSetModel = new DataSetDBModel();
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                //used for handling null values
+                settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                //convert the object into a string format
+                string strResponseDataSet = JsonConvert.SerializeObject(
+                    dataSetModel.GetMappingActions(), settings);
+                //have the control over the json
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return new System.IO.MemoryStream(responseData);
+            }
+            catch (Exception ex)
+            {
+                string strResponseDataSet = JsonConvert.SerializeObject(ex.Message);
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                return new System.IO.MemoryStream(responseData);
+            }
+        }
+
+        //Get Object Types
+        public System.IO.Stream GetObjectTypes()
+        {
+            try
+            {
+                DataSetDBModel dataSetModel = new DataSetDBModel();
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                //used for handling null values
+                settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                //convert the object into a string format
+                string strResponseDataSet = JsonConvert.SerializeObject(
+                    dataSetModel.GetObjectTypes(), settings);
+                //have the control over the json
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return new System.IO.MemoryStream(responseData);
+            }
+            catch (Exception ex)
+            {
+                string strResponseDataSet = JsonConvert.SerializeObject(ex.Message);
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                return new System.IO.MemoryStream(responseData);
+            }
+        }
+
+        //Get Priority calculated
+        public System.IO.Stream GetPriorityCalc()
+        {
+            try
+            {
+                DataSetDBModel dataSetModel = new DataSetDBModel();
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                //used for handling null values
+                settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                //convert the object into a string format
+                string strResponseDataSet = JsonConvert.SerializeObject(
+                    dataSetModel.GetPriorityCalc(), settings);
+                //have the control over the json
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return new System.IO.MemoryStream(responseData);
+            }
+            catch (Exception ex)
+            {
+                string strResponseDataSet = JsonConvert.SerializeObject(ex.Message);
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                return new System.IO.MemoryStream(responseData);
+            }
+        }
+
     }
 }

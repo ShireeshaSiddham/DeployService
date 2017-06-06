@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DDATAPOLICY" Class="DDataPolicyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=vSQL-01;Initial Catalog=DDATAPOLICY;User ID=Vinyl" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DDATAPOLICYConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.REF_EMPLOYEE" Member="RefEmployees">
+    <Type Name="RefEmployee">
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="NVarChar(160)" CanBeNull="true" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="NVarChar(240)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(964)" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(480)" CanBeNull="true" />
+      <Column Name="DIVISION" Type="System.String" DbType="NVarChar(160)" CanBeNull="true" />
+      <Column Name="DEPARTMENT" Type="System.String" DbType="NVarChar(480)" CanBeNull="true" />
+      <Column Name="TEAM" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="VINYL_USERNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REF_MAP_ACTION" Member="RefMapActions">
+    <Type Name="RefMapAction">
+      <Column Name="MAP_ACTION" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOURCE_TABLE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SOURCE_FIELD" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="[DEFAULT]" Member="DEFAULT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MAPPING_RULE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LINEAGE_REQUIRED" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REF_OBJECT_TYPE" Member="RefObjectTypes">
+    <Type Name="RefObjectType">
+      <Column Name="OBJECT_TYPE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OBJECT_TYPE" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BUSINESS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TECHNICAL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PAGE_ID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SORT_ORDER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REF_PRIORITY_CALCULATED" Member="RefPriorityCalculateds">
+    <Type Name="RefPriorityCalculated">
+      <Column Name="REQUEST_VALUE" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EFFORT" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CALC_PRIORITY" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

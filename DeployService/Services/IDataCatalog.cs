@@ -23,5 +23,25 @@ namespace DeployService.Services
              ResponseFormat = WebMessageFormat.Json,
              UriTemplate = "login/authenticate")]
         System.IO.Stream Authenticate(auth_req arequest);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "GetEmployees")]
+        System.IO.Stream GetEmployees();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "GetMappingActions")]
+        System.IO.Stream GetMappingActions();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "GetObjectTypes")]
+        System.IO.Stream GetObjectTypes();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "GetPriorityCalc")]
+        System.IO.Stream GetPriorityCalc();
     }
 }
