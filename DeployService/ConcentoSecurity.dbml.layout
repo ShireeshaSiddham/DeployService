@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ConcentoSecurity">
+  <DataContextMoniker Name="/ConcentoSecurityDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3dc8593f-4a98-4127-8f81-4540d9601e9b" absoluteBounds="1.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ConcentoSecurityDataContext/UserTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec8cdc4b-778b-4200-a6aa-e9433c13f365" absoluteBounds="1.5150000000000001, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa3a990a-6a76-4be0-80d9-994ad5f0a49f" absoluteBounds="4.5, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ConcentoSecurityDataContext/ApplicationTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13a5a3ed-2b91-4f0e-85c4-ab7f12f3bb4e" absoluteBounds="4.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 1.66429768880208); (3.5 : 1.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ConcentoSecurityDataContext/ApplicationTable/aspnet_Application_aspnet_User" />
+      <nodes>
+        <classShapeMoniker Id="aa3a990a-6a76-4be0-80d9-994ad5f0a49f" />
+        <classShapeMoniker Id="3dc8593f-4a98-4127-8f81-4540d9601e9b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
