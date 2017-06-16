@@ -26,5 +26,24 @@
         <elementListCompartment Id="d7c1fbb0-9dfc-40de-af61-7b17b45234ad" absoluteBounds="6.89, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="c27de6e3-0fb7-47e0-9bc5-ad7abf090e37" absoluteBounds="0.5, 4.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DDataPolicyDataContext/RefDataStakeholderDivision" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44bc46f4-7adc-4552-8f22-2349bdc1a91e" absoluteBounds="0.51500000000000012, 4.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94c55f1d-0500-4145-a103-9968cda5a2ab" absoluteBounds="2.625, 3.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DDataPolicyDataContext/RefDataStakeholderDept" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4516e93e-cd06-40b6-b9ce-210b6a845e56" absoluteBounds="2.6399999999999997, 4.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 4.85659912109375); (2.625 : 4.85659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DDataPolicyDataContext/RefDataStakeholderDivision/REF_DATA_STAKEHOLDER_DIVISION_REF_DATA_STAKEHOLDER_DEPT" />
+      <nodes>
+        <classShapeMoniker Id="c27de6e3-0fb7-47e0-9bc5-ad7abf090e37" />
+        <classShapeMoniker Id="94c55f1d-0500-4145-a103-9968cda5a2ab" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

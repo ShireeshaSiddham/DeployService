@@ -7,8 +7,6 @@ using System.Web;
 
 namespace DeployService.Models.Database
 {
-    [DataContract]
-    [Serializable]
     public class dEmployees
     {
         [JsonProperty("EMPLOYEE_ID", NullValueHandling = NullValueHandling.Include)]

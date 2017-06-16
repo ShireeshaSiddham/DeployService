@@ -43,5 +43,25 @@ namespace DeployService.Services
         [WebInvoke(Method = "GET",
         UriTemplate = "GetPriorityCalc")]
         System.IO.Stream GetPriorityCalc();
+
+        //Stakeholder Divisions
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "GetStakeholderDivision")]
+        System.IO.Stream GetStakeholderDivision();
+
+        //Stakeholder Dept
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+        UriTemplate = "GetStakeholderDept?version=1&username={strDivision}")]
+        System.IO.Stream GetStakeholderDept(string strDivision);
+
+        //Delete in UI Grid
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+             RequestFormat = WebMessageFormat.Json,
+             ResponseFormat = WebMessageFormat.Json,
+             UriTemplate = "DeleteUIGridRow")]
+        System.IO.Stream DeleteUIGridRow(dEmployees emp);
     }
 }

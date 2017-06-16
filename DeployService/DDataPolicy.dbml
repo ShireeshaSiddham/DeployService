@@ -58,4 +58,25 @@
       <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.REF_DATA_STAKEHOLDER_DIVISION" Member="RefDataStakeholderDivisions">
+    <Type Name="RefDataStakeholderDivision">
+      <Column Name="DIVISION" Type="System.String" DbType="NVarChar(75) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="REF_DATA_STAKEHOLDER_DIVISION_REF_DATA_STAKEHOLDER_DEPT" Member="RefDataStakeholderDepts" ThisKey="DIVISION" OtherKey="DIVISION" Type="RefDataStakeholderDept" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REF_DATA_STAKEHOLDER_DEPT" Member="RefDataStakeholderDepts">
+    <Type Name="RefDataStakeholderDept">
+      <Column Name="DIVISION" Type="System.String" DbType="NVarChar(75) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEPARTMENT" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MODIFIED_BY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MODIFIED_ON" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="REF_DATA_STAKEHOLDER_DIVISION_REF_DATA_STAKEHOLDER_DEPT" Member="RefDataStakeholderDivision" ThisKey="DIVISION" OtherKey="DIVISION" Type="RefDataStakeholderDivision" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
 </Database>

@@ -137,6 +137,7 @@
     <Compile Include="Models\Database\dMapAction.cs" />
     <Compile Include="Models\Database\dObjectType.cs" />
     <Compile Include="Models\Database\dPriorityCalc.cs" />
+    <Compile Include="Models\Database\dStakeholderDivision.cs" />
     <Compile Include="Models\Database\ResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ConcentoAuthentication\Reference.cs">

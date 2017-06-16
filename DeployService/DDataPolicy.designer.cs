@@ -42,6 +42,12 @@ namespace DeployService
     partial void InsertRefPriorityCalculated(RefPriorityCalculated instance);
     partial void UpdateRefPriorityCalculated(RefPriorityCalculated instance);
     partial void DeleteRefPriorityCalculated(RefPriorityCalculated instance);
+    partial void InsertRefDataStakeholderDivision(RefDataStakeholderDivision instance);
+    partial void UpdateRefDataStakeholderDivision(RefDataStakeholderDivision instance);
+    partial void DeleteRefDataStakeholderDivision(RefDataStakeholderDivision instance);
+    partial void InsertRefDataStakeholderDept(RefDataStakeholderDept instance);
+    partial void UpdateRefDataStakeholderDept(RefDataStakeholderDept instance);
+    partial void DeleteRefDataStakeholderDept(RefDataStakeholderDept instance);
     #endregion
 		
 		public DDataPolicyDataContext() : 
@@ -103,6 +109,22 @@ namespace DeployService
 			get
 			{
 				return this.GetTable<RefPriorityCalculated>();
+			}
+		}
+		
+		public System.Data.Linq.Table<RefDataStakeholderDivision> RefDataStakeholderDivisions
+		{
+			get
+			{
+				return this.GetTable<RefDataStakeholderDivision>();
+			}
+		}
+		
+		public System.Data.Linq.Table<RefDataStakeholderDept> RefDataStakeholderDepts
+		{
+			get
+			{
+				return this.GetTable<RefDataStakeholderDept>();
 			}
 		}
 	}
@@ -1242,6 +1264,415 @@ namespace DeployService
 					this._MODIFIED_ON = value;
 					this.SendPropertyChanged("MODIFIED_ON");
 					this.OnMODIFIED_ONChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.REF_DATA_STAKEHOLDER_DIVISION")]
+	public partial class RefDataStakeholderDivision : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _DIVISION;
+		
+		private string _CREATED_BY;
+		
+		private System.Nullable<System.DateTime> _CREATED_ON;
+		
+		private string _MODIFIED_BY;
+		
+		private System.Nullable<System.DateTime> _MODIFIED_ON;
+		
+		private EntitySet<RefDataStakeholderDept> _RefDataStakeholderDepts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDIVISIONChanging(string value);
+    partial void OnDIVISIONChanged();
+    partial void OnCREATED_BYChanging(string value);
+    partial void OnCREATED_BYChanged();
+    partial void OnCREATED_ONChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATED_ONChanged();
+    partial void OnMODIFIED_BYChanging(string value);
+    partial void OnMODIFIED_BYChanged();
+    partial void OnMODIFIED_ONChanging(System.Nullable<System.DateTime> value);
+    partial void OnMODIFIED_ONChanged();
+    #endregion
+		
+		public RefDataStakeholderDivision()
+		{
+			this._RefDataStakeholderDepts = new EntitySet<RefDataStakeholderDept>(new Action<RefDataStakeholderDept>(this.attach_RefDataStakeholderDepts), new Action<RefDataStakeholderDept>(this.detach_RefDataStakeholderDepts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIVISION", DbType="NVarChar(75) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DIVISION
+		{
+			get
+			{
+				return this._DIVISION;
+			}
+			set
+			{
+				if ((this._DIVISION != value))
+				{
+					this.OnDIVISIONChanging(value);
+					this.SendPropertyChanging();
+					this._DIVISION = value;
+					this.SendPropertyChanged("DIVISION");
+					this.OnDIVISIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NVarChar(50)")]
+		public string CREATED_BY
+		{
+			get
+			{
+				return this._CREATED_BY;
+			}
+			set
+			{
+				if ((this._CREATED_BY != value))
+				{
+					this.OnCREATED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_BY = value;
+					this.SendPropertyChanged("CREATED_BY");
+					this.OnCREATED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_ON", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATED_ON
+		{
+			get
+			{
+				return this._CREATED_ON;
+			}
+			set
+			{
+				if ((this._CREATED_ON != value))
+				{
+					this.OnCREATED_ONChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_ON = value;
+					this.SendPropertyChanged("CREATED_ON");
+					this.OnCREATED_ONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFIED_BY", DbType="NVarChar(50)")]
+		public string MODIFIED_BY
+		{
+			get
+			{
+				return this._MODIFIED_BY;
+			}
+			set
+			{
+				if ((this._MODIFIED_BY != value))
+				{
+					this.OnMODIFIED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MODIFIED_BY = value;
+					this.SendPropertyChanged("MODIFIED_BY");
+					this.OnMODIFIED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFIED_ON", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MODIFIED_ON
+		{
+			get
+			{
+				return this._MODIFIED_ON;
+			}
+			set
+			{
+				if ((this._MODIFIED_ON != value))
+				{
+					this.OnMODIFIED_ONChanging(value);
+					this.SendPropertyChanging();
+					this._MODIFIED_ON = value;
+					this.SendPropertyChanged("MODIFIED_ON");
+					this.OnMODIFIED_ONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="REF_DATA_STAKEHOLDER_DIVISION_REF_DATA_STAKEHOLDER_DEPT", Storage="_RefDataStakeholderDepts", ThisKey="DIVISION", OtherKey="DIVISION")]
+		public EntitySet<RefDataStakeholderDept> RefDataStakeholderDepts
+		{
+			get
+			{
+				return this._RefDataStakeholderDepts;
+			}
+			set
+			{
+				this._RefDataStakeholderDepts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_RefDataStakeholderDepts(RefDataStakeholderDept entity)
+		{
+			this.SendPropertyChanging();
+			entity.RefDataStakeholderDivision = this;
+		}
+		
+		private void detach_RefDataStakeholderDepts(RefDataStakeholderDept entity)
+		{
+			this.SendPropertyChanging();
+			entity.RefDataStakeholderDivision = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.REF_DATA_STAKEHOLDER_DEPT")]
+	public partial class RefDataStakeholderDept : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _DIVISION;
+		
+		private string _DEPARTMENT;
+		
+		private string _CREATED_BY;
+		
+		private System.Nullable<System.DateTime> _CREATED_ON;
+		
+		private string _MODIFIED_BY;
+		
+		private System.Nullable<System.DateTime> _MODIFIED_ON;
+		
+		private EntityRef<RefDataStakeholderDivision> _RefDataStakeholderDivision;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDIVISIONChanging(string value);
+    partial void OnDIVISIONChanged();
+    partial void OnDEPARTMENTChanging(string value);
+    partial void OnDEPARTMENTChanged();
+    partial void OnCREATED_BYChanging(string value);
+    partial void OnCREATED_BYChanged();
+    partial void OnCREATED_ONChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATED_ONChanged();
+    partial void OnMODIFIED_BYChanging(string value);
+    partial void OnMODIFIED_BYChanged();
+    partial void OnMODIFIED_ONChanging(System.Nullable<System.DateTime> value);
+    partial void OnMODIFIED_ONChanged();
+    #endregion
+		
+		public RefDataStakeholderDept()
+		{
+			this._RefDataStakeholderDivision = default(EntityRef<RefDataStakeholderDivision>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIVISION", DbType="NVarChar(75) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DIVISION
+		{
+			get
+			{
+				return this._DIVISION;
+			}
+			set
+			{
+				if ((this._DIVISION != value))
+				{
+					if (this._RefDataStakeholderDivision.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDIVISIONChanging(value);
+					this.SendPropertyChanging();
+					this._DIVISION = value;
+					this.SendPropertyChanged("DIVISION");
+					this.OnDIVISIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPARTMENT", DbType="NVarChar(200) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string DEPARTMENT
+		{
+			get
+			{
+				return this._DEPARTMENT;
+			}
+			set
+			{
+				if ((this._DEPARTMENT != value))
+				{
+					this.OnDEPARTMENTChanging(value);
+					this.SendPropertyChanging();
+					this._DEPARTMENT = value;
+					this.SendPropertyChanged("DEPARTMENT");
+					this.OnDEPARTMENTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NVarChar(50)")]
+		public string CREATED_BY
+		{
+			get
+			{
+				return this._CREATED_BY;
+			}
+			set
+			{
+				if ((this._CREATED_BY != value))
+				{
+					this.OnCREATED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_BY = value;
+					this.SendPropertyChanged("CREATED_BY");
+					this.OnCREATED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_ON", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATED_ON
+		{
+			get
+			{
+				return this._CREATED_ON;
+			}
+			set
+			{
+				if ((this._CREATED_ON != value))
+				{
+					this.OnCREATED_ONChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_ON = value;
+					this.SendPropertyChanged("CREATED_ON");
+					this.OnCREATED_ONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFIED_BY", DbType="NVarChar(50)")]
+		public string MODIFIED_BY
+		{
+			get
+			{
+				return this._MODIFIED_BY;
+			}
+			set
+			{
+				if ((this._MODIFIED_BY != value))
+				{
+					this.OnMODIFIED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MODIFIED_BY = value;
+					this.SendPropertyChanged("MODIFIED_BY");
+					this.OnMODIFIED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODIFIED_ON", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MODIFIED_ON
+		{
+			get
+			{
+				return this._MODIFIED_ON;
+			}
+			set
+			{
+				if ((this._MODIFIED_ON != value))
+				{
+					this.OnMODIFIED_ONChanging(value);
+					this.SendPropertyChanging();
+					this._MODIFIED_ON = value;
+					this.SendPropertyChanged("MODIFIED_ON");
+					this.OnMODIFIED_ONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="REF_DATA_STAKEHOLDER_DIVISION_REF_DATA_STAKEHOLDER_DEPT", Storage="_RefDataStakeholderDivision", ThisKey="DIVISION", OtherKey="DIVISION", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public RefDataStakeholderDivision RefDataStakeholderDivision
+		{
+			get
+			{
+				return this._RefDataStakeholderDivision.Entity;
+			}
+			set
+			{
+				RefDataStakeholderDivision previousValue = this._RefDataStakeholderDivision.Entity;
+				if (((previousValue != value) 
+							|| (this._RefDataStakeholderDivision.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RefDataStakeholderDivision.Entity = null;
+						previousValue.RefDataStakeholderDepts.Remove(this);
+					}
+					this._RefDataStakeholderDivision.Entity = value;
+					if ((value != null))
+					{
+						value.RefDataStakeholderDepts.Add(this);
+						this._DIVISION = value.DIVISION;
+					}
+					else
+					{
+						this._DIVISION = default(string);
+					}
+					this.SendPropertyChanged("RefDataStakeholderDivision");
 				}
 			}
 		}

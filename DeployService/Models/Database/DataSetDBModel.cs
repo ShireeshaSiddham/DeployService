@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Web;
+using System.Text;
 using System.Web;
 
 namespace DeployService.Models.Database
@@ -138,5 +141,78 @@ namespace DeployService.Models.Database
                 throw ex;
             }
         }
+
+        public List<dStakeholderDivision> GetStakeholderDivision()
+        {
+            try
+            {
+                DDataPolicyDataContext dc = new DDataPolicyDataContext();
+                List<dStakeholderDivision> objectTypeList = new List<dStakeholderDivision>();
+                var query = from P in dc.RefDataStakeholderDivisions
+                            select new
+                            {
+                                Division = P.DIVISION,
+                                CreatedBy = P.CREATED_BY,
+                                CreatedOn = P.CREATED_ON,
+                                ModifiedBy=P.MODIFIED_BY,
+                                ModifiedOn=P.MODIFIED_ON
+                            };
+                foreach (var obj in query)
+                {
+                    objectTypeList.Add(new dStakeholderDivision()
+                    {
+                        Division = obj.Division,
+                        CreatedBy = obj.CreatedBy,
+                        CreatedOn = Convert.ToDateTime(obj.CreatedOn),
+                        ModifiedBy = obj.ModifiedBy,
+                        ModifiedOn = Convert.ToDateTime(obj.ModifiedOn)
+                    });
+                }
+                return objectTypeList;
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("Connection_Error", "Could not connect to Database.");
+                throw ex;
+            }
+        }
+
+        public List<dStakeholderDivision> GetStakeholderDept(string strDivision)
+        {
+            try
+            {
+                DDataPolicyDataContext dc = new DDataPolicyDataContext();
+                List<dStakeholderDivision> objectTypeList = new List<dStakeholderDivision>();
+                var query = from P in dc.RefDataStakeholderDepts.Where(k => k.DIVISION ==strDivision)
+                            select new
+                            {
+                                Division = P.DIVISION,
+                                Department=P.DEPARTMENT,
+                                CreatedBy = P.CREATED_BY,
+                                CreatedOn = P.CREATED_ON,
+                                ModifiedBy = P.MODIFIED_BY,
+                                ModifiedOn = P.MODIFIED_ON
+                            };
+                foreach (var obj in query)
+                {
+                    objectTypeList.Add(new dStakeholderDivision()
+                    {
+                        Division = obj.Division,
+                        Dept=obj.Department,
+                        CreatedBy = obj.CreatedBy,
+                        CreatedOn = Convert.ToDateTime(obj.CreatedOn),
+                        ModifiedBy = obj.ModifiedBy,
+                        ModifiedOn = Convert.ToDateTime(obj.ModifiedOn)
+                    });
+                }
+                return objectTypeList;
+            }
+            catch (Exception ex)
+            {
+                ex.Data.Add("Connection_Error", "Could not connect to Database.");
+                throw ex;
+            }
+        }
+
     }
 }

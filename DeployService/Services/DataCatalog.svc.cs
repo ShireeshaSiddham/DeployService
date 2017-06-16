@@ -196,5 +196,83 @@ namespace DeployService.Services
             }
         }
 
+        //Get Stakeholder Division
+        public System.IO.Stream GetStakeholderDivision()
+        {
+            try
+            {
+                DataSetDBModel dataSetModel = new DataSetDBModel();
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                //used for handling null values
+                settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                //convert the object into a string format
+                string strResponseDataSet = JsonConvert.SerializeObject(
+                    dataSetModel.GetStakeholderDivision(), settings);
+                //have the control over the json
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return new System.IO.MemoryStream(responseData);
+            }
+            catch (Exception ex)
+            {
+                string strResponseDataSet = JsonConvert.SerializeObject(ex.Message);
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                return new System.IO.MemoryStream(responseData);
+            }
+        }
+
+        //Get Stakeholder Dept
+        public System.IO.Stream GetStakeholderDept(string strDivision)
+        {
+            try
+            {
+                DataSetDBModel dataSetModel = new DataSetDBModel();
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                //used for handling null values
+                settings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                //convert the object into a string format
+                string strResponseDataSet = JsonConvert.SerializeObject(
+                    dataSetModel.GetStakeholderDept(strDivision), settings);
+                //have the control over the json
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return new System.IO.MemoryStream(responseData);
+            }
+            catch (Exception ex)
+            {
+                string strResponseDataSet = JsonConvert.SerializeObject(ex.Message);
+                byte[] responseData = Encoding.UTF8.GetBytes(strResponseDataSet);
+                WebOperationContext.Current.OutgoingResponse.ContentType = "application/json";
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.InternalServerError;
+                return new System.IO.MemoryStream(responseData);
+            }
+        }
+
+
+        public System.IO.Stream DeleteUIGridRow(dEmployees emp)
+        {
+            try
+            {
+                DDataPolicyDataContext dc = new DDataPolicyDataContext();
+                RefEmployee updateEmp = dc.RefEmployees.Where(o => o.EMPLOYEE_ID == emp.EmpID).FirstOrDefault();
+
+                dc.RefEmployees.DeleteOnSubmit(updateEmp);
+                dc.SubmitChanges();
+
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.OK;
+                return CreateStreamForResponse(ResponseStatus.RESPONSE_OK, "Success", null);
+            }
+            catch (Exception ex)
+            {
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.ServiceUnavailable;
+                return null;
+                //CreateStreamForResponse(ResponseStatus.RESPONSE_ERROR_EXCEPTION, "Exception", ex);
+            }
+        }
+       
     }
 }
